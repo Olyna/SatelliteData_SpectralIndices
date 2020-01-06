@@ -10,7 +10,7 @@ import numpy as np
 
 def bandsForIndices(satellite, bandsInOneTile):
     """
-    satellite = string or integer. Number of Landsat mission.
+    satellite = string or integer. Abbreviation of satellite mission name.
     bandsInOneTile = list of paths for the bands of a record.
     red, nir, swir = string. Paths for the corresponding band, for each
                     satellite.
