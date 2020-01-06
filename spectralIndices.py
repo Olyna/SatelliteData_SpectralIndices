@@ -40,6 +40,7 @@ def bandsForIndices(satellite, bandsInOneTile):
                 red = imPath
             elif '_B8' in imPath or '_B08' in imPath:
                 nir = imPath
+        swir = None
 
     else:
         print('Unable to discover bands for satellite {}'.format(satellite))
