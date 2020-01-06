@@ -16,7 +16,7 @@ def bandsForIndices(satellite, bandsInOneTile):
                     satellite.
     """
     # If it is about Landsat 8
-    if str(satellite) == '8':
+    if str(satellite) == 'L8':
         for imPath in bandsInOneTile:
             if '_B4' in imPath:
                 red = imPath
@@ -25,7 +25,7 @@ def bandsForIndices(satellite, bandsInOneTile):
             elif '_B6' in imPath:
                 swir = imPath
     # If it is about Landsat 5
-    elif str(satellite) == '5':
+    elif str(satellite) == 'L5':
         for imPath in bandsInOneTile:
             if '_B3' in imPath:
                 red = imPath
@@ -33,8 +33,16 @@ def bandsForIndices(satellite, bandsInOneTile):
                 nir = imPath
             elif '_B5' in imPath:
                 swir = imPath
+    # If it is about Sentinel 2
+    elif str(satellite) == 'S2':
+        for imPath in bandsInOneTile:
+            if '_B4' in imPath or '_B04' in imPath:
+                red = imPath
+            elif '_B8' in imPath or '_B08' in imPath:
+                nir = imPath
+
     else:
-        print('Unable to discover bands for Landsat {}'.format(satellite))
+        print('Unable to discover bands for satellite {}'.format(satellite))
     return(red, nir, swir)
 
 
