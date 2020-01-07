@@ -53,10 +53,15 @@ def calc_ndvi(nir, red):
     nir, red = arrays
     res = array
     """
+    # BE CAREFULL! Without this convertion, doesn't work correctly !
+    red = red.astype(np.float32)
+    nir = nir.astype(np.float32)
+
     res = (nir-red)/(nir+red)
     # (count, row, col)  Rasterio needs count=1
     res = res.reshape(1, res.shape[0], res.shape[1])
     return res
+
 
 def calc_msavi(nir, red):
     res =  (2 * nir + 1- np.sqrt((2 * nir + 1)**2 - 8*(nir-red))) / 2
