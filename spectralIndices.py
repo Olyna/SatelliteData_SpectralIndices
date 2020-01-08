@@ -36,9 +36,9 @@ def bandsForIndices(satellite, bandsInOneTile):
     # If it is about Sentinel 2
     elif str(satellite) == 'S2':
         for imPath in bandsInOneTile:
-            if '_B04_10m' in imPath:
+            if '_B04' in imPath:
                 red = imPath
-            elif '_B08_10m' in imPath:
+            elif '_B08' in imPath:
                 nir = imPath
         swir = None
 
