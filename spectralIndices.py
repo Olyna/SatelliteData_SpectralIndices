@@ -68,12 +68,16 @@ def calc_msavi(nir, red):
     return res
 
 def calc_ndbi(swir, nir):
+    swir = swir.astype(np.float32)
+    nir = nir.astype(np.float32)
     res = (swir-nir)/(swir+nir)
     res = res.reshape(1, res.shape[0], res.shape[1])
     return res
 
-def calc_ndwi(nir, swir):
-    res = (nir-swir)/nir+swir
+def calc_ndwi(nir, swir):   
+    nir = nir.astype(np.float32)
+    swir = swir.astype(np.float32)
+    res = (nir-swir)/(nir+swir)
     res = res.reshape(1, res.shape[0], res.shape[1])
     return res
 
